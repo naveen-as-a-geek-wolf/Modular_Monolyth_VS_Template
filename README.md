@@ -47,33 +47,37 @@ The template combines modern architectural patterns and practices to create a ro
 
 6. **Set up the database:**
    ```powershell
-   # Install Flyway and create database with all modules
-   ./development_scripts/runDevFlyway.ps1 -action migrate -module All -createDatabase $true
+   # Navigate to development scripts and setup database
+   cd .\development_scripts\
+   .\runDevFlyway.ps1 migrate All $true
    ```
 
 ### Database Management Commands
 
 ```powershell
+# Navigate to development scripts directory first
+cd .\development_scripts\
+
 # Migrate all modules at once (creates database if not exists)
-./development_scripts/runDevFlyway.ps1 -action migrate -module All -createDatabase $true
+.\runDevFlyway.ps1 migrate All $true
 
 # Migrate specific module
-./development_scripts/runDevFlyway.ps1 -action migrate -module User
+.\runDevFlyway.ps1 migrate User $false
 
 # Check migration status
-./development_scripts/runDevFlyway.ps1 -action info -module All
+.\runDevFlyway.ps1 info All $false
 
 # Validate migrations
-./development_scripts/runDevFlyway.ps1 -action validate -module All
+.\runDevFlyway.ps1 validate All $false
 
 # Clean and re-migrate (development only)
-./development_scripts/runDevFlyway.ps1 -action cleanAndMigrate -module All -createDatabase $true
+.\runDevFlyway.ps1 cleanAndMigrate All $true
 
 # Create new migration script
-./development_scripts/newMigrationScript.ps1 -module User -description "Add new user fields"
+.\newMigrationScript.ps1 -module User -description "Add new user fields"
 
 # Remove last migration (development only)
-./development_scripts/removeLastMigration.ps1 -module User
+.\removeLastMigration.ps1 -module User
 ```
 
 ## Architectural Patterns & Design Decisions
@@ -229,9 +233,11 @@ The template includes the following modules by default:
 1. **Start Development:**
    ```powershell
    # Set up database
-   ./development_scripts/runDevFlyway.ps1 -action migrate -module All -createDatabase $true
+   cd .\development_scripts\
+   .\runDevFlyway.ps1 migrate All $true
    
-   # Run the application
+   # Return to project root and run the application
+   cd ..
    dotnet run --project MyCustomApp.API
    ```
 
@@ -242,11 +248,14 @@ The template includes the following modules by default:
 
 3. **Database Changes:**
    ```powershell
+   # Navigate to development scripts
+   cd .\development_scripts\
+   
    # Create new migration
-   ./development_scripts/newMigrationScript.ps1 -module User -description "Add user preferences"
+   .\newMigrationScript.ps1 -module User -description "Add user preferences"
    
    # Apply migration
-   ./development_scripts/runDevFlyway.ps1 -action migrate -module User
+   .\runDevFlyway.ps1 migrate User $false
    ```
 
 4. **Testing:**
