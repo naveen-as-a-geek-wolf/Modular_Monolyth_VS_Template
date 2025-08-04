@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Your Name",
+  "identity": "MyCompany.MyCustomApp.Template",
+  "name": "Modular DDD Template",
+  "shortName": "modmon",
+  "sourceName": "MyCustomApp",
+  "preferNameDirectory": true,
+
+  "symbols": {
+    "solutionName": {
+      "type": "parameter",
+      "datatype": "text",
+      "replaces": "MyCustomApp",
+      "description": "Base project/solution name"
+    },
+    "UserSecretsGuid": {
+      "type": "generated",
+      "generator": "guid",
+      "replaces": "UserSecretsGuid"
+    },
+    "DockerProjectGuid": {
+      "type": "generated",
+      "generator": "guid",
+      "replaces": "DockerProjectGuid"
+    }
+  },
+
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+
+  "primaryOutputs": [
+    {
+      "path": "MyCustomApp.sln"
+    }
+  ]
+}

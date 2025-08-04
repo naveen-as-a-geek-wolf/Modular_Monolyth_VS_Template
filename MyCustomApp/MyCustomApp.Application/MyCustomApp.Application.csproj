@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="FluentValidation" Version="12.0.0" />
+		<PackageReference Include="LanguageExt.Core" Version="4.4.9" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.7" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.7" />
+	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyCustomApp.Domain\MyCustomApp.Domain.csproj" />
+    <ProjectReference Include="..\Library\MediateX\MediateX.csproj" />
+    <ProjectReference Include="..\Library\Shared\Shared.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Modules\Game\Queries\" />
+    <Folder Include="Modules\User\Commands\" />
+    <Folder Include="Modules\User\Queries\" />
+  </ItemGroup>
+
+</Project>
