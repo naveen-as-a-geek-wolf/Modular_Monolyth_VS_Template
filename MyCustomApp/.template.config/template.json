@@ -1,7 +1,7 @@
 {
   "$schema": "http://json.schemastore.org/template",
-  "author": "Your Name",
-  "identity": "MyCompany.MyCustomApp.Template",
+  "author": "dev@geekywolf",
+  "identity": "GeekyWolf.ModularMonolyth.Template",
   "name": "Modular DDD Template",
   "shortName": "modmon",
   "sourceName": "MyCustomApp",
